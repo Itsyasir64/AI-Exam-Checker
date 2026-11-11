@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">Grading result</div><h1>{{ sheet.exam.title }}</h1><p class="subtitle">Answer sheet submitted by {{ sheet.student }}</p></div><a class="btn btn-secondary" href="{% url 'grading:list' %}">&larr; All results</a></div>
+<section class="result-card"><p>Status: <span class="badge badge-{{ sheet.status }}">{{ sheet.status }}</span>{% if sheet.status == "processing" or sheet.status == "uploaded" %} <span class="subtitle">Refresh in a few seconds.</span>{% endif %}</p>
+{% if sheet.error %}<div class="alert alert-error">{{ sheet.error }}</div>{% endif %}
+{% if sheet.total_score is not None %}<div class="score-panel"><div class="score-value">{{ sheet.total_score }} / {{ sheet.exam.total_marks }}</div><div class="score-label">Overall score</div></div>{% endif %}
+{% if sheet.overall_feedback %}<p>{{ sheet.overall_feedback }}</p>{% endif %}
+{% for r in sheet.results.all %}<article class="question-result"><h3>Q{{ r.question.number }} <span class="score-label">{{ r.score }} / {{ r.question.max_marks }}</span></h3><p class="answer"><em>{{ r.student_answer }}</em></p><p>{{ r.feedback }}</p></article>{% endfor %}
+</section>
+{% endblock %}

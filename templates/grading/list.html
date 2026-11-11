@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">Grading center</div><h1>Results</h1><p class="subtitle">Track submitted answer sheets and review detailed AI feedback.</p></div></div>
+<section class="card"><div class="table-wrap"><table><thead><tr><th>Exam</th><th>Student</th><th>Status</th><th>Score</th></tr></thead><tbody>{% for s in sheets %}<tr><td><a href="{% url 'grading:result' s.pk %}"><strong>{{ s.exam }}</strong></a></td><td>{{ s.student }}</td><td><span class="badge badge-{{ s.status }}">{{ s.status }}</span></td><td>{{ s.total_score|default:"-" }}</td></tr>{% empty %}<tr><td class="empty-state" colspan="4"><strong>No results yet</strong>Uploaded answer sheets will appear here.</td></tr>{% endfor %}</tbody></table></div></section>
+{% endblock %}

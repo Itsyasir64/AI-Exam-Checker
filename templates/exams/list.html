@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">Workspace</div><h1>Exams</h1><p class="subtitle">Manage your assessments and send answer sheets for instant AI-assisted grading.</p></div>{% if user.is_teacher %}<a class="btn" href="{% url 'exams:create' %}">+ New exam</a>{% endif %}</div>
+<section class="card"><div class="table-wrap"><table><thead><tr><th>Title</th><th>Subject</th><th>Marks</th><th>Action</th></tr></thead><tbody>
+  {% for e in exams %}<tr><td><a href="{% url 'exams:detail' e.pk %}"><strong>{{ e.title }}</strong></a></td><td>{{ e.subject }}</td><td>{{ e.total_marks }}</td><td><a href="{% url 'grading:upload' e.pk %}">Upload answer sheet &rarr;</a></td></tr>
+  {% empty %}<tr><td class="empty-state" colspan="4"><strong>No exams yet</strong>Create your first exam to get started.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

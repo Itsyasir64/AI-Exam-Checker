@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-card"><div class="eyebrow">{{ exam.title }}</div><h1>Upload answer sheet</h1><p class="subtitle">Upload a clear PDF or image and let the grader analyze each response.</p><form method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.as_p }}<button class="primary">Upload &amp; grade</button></form></div>
+{% endblock %}
