@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}Result | AI Exam Checker{% endblock %}
 {% block content %}
 <div class="page-heading"><div><div class="eyebrow">Grading result</div><h1>{{ sheet.exam.title }}</h1><p class="subtitle">Answer sheet submitted by {{ sheet.student }}</p></div><a class="btn btn-secondary" href="{% url 'grading:list' %}">&larr; All results</a></div>
 <section class="result-card"><p>Status: <span class="badge badge-{{ sheet.status }}">{{ sheet.status }}</span>{% if sheet.status == "processing" or sheet.status == "uploaded" %} <span class="subtitle">Refresh in a few seconds.</span>{% endif %}</p>

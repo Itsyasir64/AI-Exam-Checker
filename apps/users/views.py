@@ -5,6 +5,12 @@ from django.shortcuts import redirect, render
 from .models import User
 
 
+def home(request):
+    if request.user.is_authenticated:
+        return redirect("exams:list")
+    return render(request, "users/home.html")
+
+
 class SignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User

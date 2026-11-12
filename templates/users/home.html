@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}AI Exam Checker | Smarter assessment feedback{% endblock %}
+{% block content %}
+<section class="hero-section">
+  <div class="hero-copy">
+    <div class="eyebrow">AI-powered assessment</div>
+    <h1>Grade smarter.<br><span>Teach better.</span></h1>
+    <p class="hero-text">Turn answer sheets into clear, actionable feedback in minutes. AI Exam Checker helps teachers manage exams and helps students understand every result.</p>
+    <div class="actions"><a class="btn" href="{% url 'users:register' %}">Create free account</a><a class="btn btn-secondary" href="{% url 'users:login' %}">Log in</a></div>
+    <div class="hero-note"><span class="note-dot"></span> Built for focused, fair feedback</div>
+  </div>
+  <div class="hero-visual" aria-label="Assessment insights preview">
+    <div class="preview-window"><div class="preview-top"><span></span><span></span><span></span><b>Assessment overview</b></div><div class="preview-body"><div class="preview-label">Latest submission</div><div class="preview-score">86<span>/100</span></div><div class="preview-bar"><i></i></div><div class="preview-row"><span>Content accuracy</span><strong>Excellent</strong></div><div class="preview-row"><span>Questions reviewed</span><strong>12 / 12</strong></div></div></div>
+  </div>
+</section>
+<section class="feature-grid"><article class="feature-card"><div class="feature-icon">01</div><h3>Organize exams</h3><p>Create assessments, add questions, and keep every paper in one focused workspace.</p></article><article class="feature-card"><div class="feature-icon">02</div><h3>Upload with ease</h3><p>Submit a clear answer sheet and let the grading workflow process it for you.</p></article><article class="feature-card"><div class="feature-icon">03</div><h3>Understand results</h3><p>See scores, question-level feedback, and the next steps for improvement.</p></article></section>
+{% endblock %}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}{{ title }} | AI Exam Checker{% endblock %}
 {% block content %}
 <div class="form-card"><div class="eyebrow">Exam setup</div><h1>{{ title }}</h1><p class="subtitle">Add the details students and graders need for this assessment.</p><form method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.as_p }}<button class="primary">Save exam</button></form></div>
 {% endblock %}

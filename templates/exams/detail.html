@@ -1,5 +1,6 @@
 {% extends "base.html" %}
+{% block title %}{{ exam.title }} | AI Exam Checker{% endblock %}
 {% block content %}
-<div class="page-heading"><div><div class="eyebrow">Exam details</div><h1>{{ exam.title }}</h1><p class="subtitle">{{ exam.description|default:"Review the questions and total marks for this assessment." }}</p></div>{% if user == exam.teacher %}<a class="btn" href="{% url 'exams:question_add' exam.pk %}">+ Add question</a>{% endif %}</div>
+<div class="page-heading"><div><div class="eyebrow">Exam details</div><h1>{{ exam.title }}</h1><p class="subtitle">{{ exam.description|default:"Review the questions and total marks for this assessment." }}</p></div><div class="actions">{% if user == exam.teacher %}<a class="btn btn-secondary" href="{% url 'exams:question_add' exam.pk %}">+ Add question</a>{% else %}<a class="btn" href="{% url 'grading:upload' exam.pk %}">Upload answer sheet</a>{% endif %}</div></div>
 <section class="card"><div class="table-wrap"><table><thead><tr><th>#</th><th>Question</th><th>Marks</th></tr></thead><tbody>{% for q in exam.questions.all %}<tr><td>{{ q.number }}</td><td>{{ q.text }}</td><td>{{ q.max_marks }}</td></tr>{% empty %}<tr><td class="empty-state" colspan="3"><strong>No questions yet</strong>Add questions to complete this exam.</td></tr>{% endfor %}</tbody></table></div></section>
 {% endblock %}

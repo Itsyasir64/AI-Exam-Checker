@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}Create account | AI Exam Checker{% endblock %}
 {% block content %}
 <div class="form-card auth-card"><div class="eyebrow">Get started</div><h1>Create your account</h1><p class="subtitle form-intro">Set up your workspace to create exams and evaluate answer sheets.</p><form method="post">{% csrf_token %}{{ form.as_p }}<button class="primary">Create account</button></form></div>
 {% endblock %}
